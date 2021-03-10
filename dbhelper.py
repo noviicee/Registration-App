@@ -31,6 +31,12 @@ class DB_helper:
 
 	def register(self,name,email,password):
 		#code for actual registration in the database
+		    """
+		    here, we need to check that the email being entered does not currently exists in the database, 
+		    if it does, we simply need to return -1 saying that 'email already exists, registration failed'
+		    If the email eneterd at this step does not exist already, then only we will insert a new user.
+		    """
+			
 		try:
 			self.mycursor.execute("""
 				INSERT INTO `users`(`id`, `name`, `email`, `password`) VALUES (NULL,'{}','{}','{}');
